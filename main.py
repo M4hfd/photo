@@ -8,7 +8,8 @@ for photo in range(5):
     vk = image.resize((1400, 1000))
     instagram = instagram.crop(coordinates)
     facebook = image.resize((1200, 628))
-    os.mkdir(f"photo_{photo}_end")
+    if not os.path.isdir(f"photo_{photo}_end"):
+        os.mkdir(f"photo_{photo}_end")
     vk.save(f"photo_{photo}_end/photo_vk_{photo}.png", "png")
     instagram.save(f"photo_{photo}_end/photo_instagram_{photo}.png", "png")
     facebook.save(f"photo_{photo}_end/photo_facebook_{photo}.png", "png")
